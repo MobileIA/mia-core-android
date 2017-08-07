@@ -25,7 +25,9 @@ abstract public class RestBuilder {
         // Creamos instancia de retrofit
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(getBaseUrl())
+                //.addConverterFactory(new RestBodyConverterFactory())
                 .addConverterFactory(createConverterFactory())
+                .addCallAdapterFactory(new RestBodyCallAdapterFactory())
                 .build();
     }
     /**
