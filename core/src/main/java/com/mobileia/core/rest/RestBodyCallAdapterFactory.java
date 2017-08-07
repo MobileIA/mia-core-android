@@ -32,10 +32,9 @@ public class RestBodyCallAdapterFactory extends CallAdapter.Factory {
         }
         // Obtener tipo de objeto que se incluyo
         final Type responseType = Utils.getCallResponseType(returnType);
-        System.out.println(" CallAdapter Test: " + responseType);
+        // Incluir ese tipo dentro de RestBody
         final Type newResponseType = Types.newParameterizedType(RestBody.class, responseType);
-        System.out.println(" CallAdapter Test: " + newResponseType);
-
+        // Generamos el Adapter
         return new RestBodyCallAdapter() {
             @Override
             public Type responseType() {
@@ -43,19 +42,9 @@ public class RestBodyCallAdapterFactory extends CallAdapter.Factory {
             }
 
             @Override
-            public Call<RestBody<?>> adapt(Call<RestBody<?>> call) {
-                return new RestBodyCall<>(call);
+            public RestBodyCall adapt(Call<RestBody<?>> call) {
+                return new RestBodyCall(call);
             }
         };
-        /*return new CallAdapter<RestBody<?>, Call<RestBody<?>>>() {
-            @Override public Type responseType() {
-                return newResponseType;
-            }
-
-            @Override public Call<RestBody<?>> adapt(Call<RestBody<?>> call) {
-                return new RestBodyCall<>(call);
-                //return call;
-            }
-        };*/
     }
 }

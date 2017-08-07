@@ -12,37 +12,22 @@ import retrofit2.Response;
  * Created by matiascamiletti on 7/8/17.
  */
 
-public class RestBodyCall<T> implements Call<T> {
+public class RestBodyCall<T> implements Call<RestBody<T>> {
 
-    protected Call<T> mDelegate;
+    protected Call<RestBody<T>> mDelegate;
 
-    public RestBodyCall(Call<T> delegate){
+    public RestBodyCall(Call<RestBody<T>> delegate){
         this.mDelegate = delegate;
     }
 
     @Override
-    public Response<T> execute() throws IOException {
+    public Response<RestBody<T>> execute() throws IOException {
         return mDelegate.execute();
     }
 
     @Override
-    public void enqueue(Callback<T> callback) {
+    public void enqueue(Callback<RestBody<T>> callback) {
         mDelegate.enqueue(callback);
-    }
-
-    public void async(final Callback<RestBody<T>> callback){
-        mDelegate.enqueue(new Callback<T>() {
-            @Override
-            public void onResponse(Call<T> call, Response<T> response) {
-                Response<RestBody<T>> restBody = (Response<RestBody<T>>)response;
-                callback.onResponse(null, restBody);
-            }
-
-            @Override
-            public void onFailure(Call<T> call, Throwable t) {
-                callback.onFailure(null, t);
-            }
-        });
     }
 
     @Override
@@ -61,8 +46,8 @@ public class RestBodyCall<T> implements Call<T> {
     }
 
     @Override
-    public Call<T> clone() {
-        return new RestBodyCall<>(mDelegate.clone());
+    public Call<RestBody<T>> clone() {
+        return new RestBodyCall(mDelegate.clone());
     }
 
     @Override

@@ -9,6 +9,6 @@ import retrofit2.CallAdapter;
  * Created by matiascamiletti on 7/8/17.
  */
 
-public interface RestBodyCallAdapter extends CallAdapter<RestBody<?>, Call<RestBody<?>>> {
+public interface RestBodyCallAdapter extends CallAdapter<RestBody<?>, RestBodyCall> {
 
 }

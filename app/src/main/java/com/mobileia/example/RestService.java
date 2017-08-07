@@ -15,8 +15,5 @@ import retrofit2.http.POST;
 
 public interface RestService {
     @POST("search/discount")
-    Call<RestBody<List<Service>>> services();
-
-    @POST("search/discount")
     RestBodyCall<List<Service>> services2();
 }
