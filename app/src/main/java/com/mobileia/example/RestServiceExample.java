@@ -1,5 +1,8 @@
 package com.mobileia.example;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import com.mobileia.core.rest.RestBody;
 import com.mobileia.core.rest.RestBodyCall;
 import com.mobileia.core.rest.RestBuilder;
@@ -17,7 +20,7 @@ import retrofit2.Response;
 
 public class RestServiceExample extends RestBuilder {
 
-    public void getServices(){
+    public void getServices(final Context context){
         RestService service = createService(RestService.class);
         RestBodyCall<List<Service>> call = service.services2();
         call.enqueue(new Callback<RestBody<List<Service>>>() {
@@ -30,7 +33,8 @@ public class RestServiceExample extends RestBuilder {
 
                 System.out.println(response.body());
                 System.out.println(response.body().response.size());
-                System.out.println(response.body().response.get(0).id);
+                //System.out.println(response.body().response.get(0).id);
+                Toast.makeText(context, "Esto es una prueba", Toast.LENGTH_SHORT).show();
             }
 
             @Override

@@ -14,6 +14,6 @@ public class MainActivity extends AppCompatActivity {
         // Configurar Mobileia Lab
         Mobileia.getInstance().setAppId(4);
         // Ejemplos de RetroFit
-        new RestServiceExample().getServices();
+        new RestServiceExample().getServices(this);
     }
 }

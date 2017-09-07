@@ -20,7 +20,7 @@ public class RestBodyCallAdapterFactory extends CallAdapter.Factory {
 
     @Nullable
     @Override
-    public CallAdapter<?, ?> get(Type returnType, Annotation[] annotations, Retrofit retrofit) {
+    public CallAdapter<?, ?> get(Type returnType, Annotation[] annotations, final Retrofit retrofit) {
         // Verificamos si el tipo de retorno es RestBody
         if (getRawType(returnType) != RestBodyCall.class) {
             return null;
@@ -43,7 +43,7 @@ public class RestBodyCallAdapterFactory extends CallAdapter.Factory {
 
             @Override
             public RestBodyCall adapt(Call<RestBody<?>> call) {
-                return new RestBodyCall(call);
+                return new RestBodyCall(call, retrofit.callbackExecutor());
             }
         };
     }
