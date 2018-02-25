@@ -45,6 +45,18 @@ public class ToolbarHelper {
     }
 
     /**
+     * Setea el titulo en la toolbar
+     * @param title
+     * @return
+     */
+    public ToolbarHelper withTitle(String title){
+        // Configuramos el titulo
+        mActivity.getSupportActionBar().setTitle(title);
+        // Devolvemos objeto
+        return this;
+    }
+
+    /**
      * Configura el boton para volver atras.
      * @return
      */
