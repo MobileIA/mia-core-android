@@ -9,6 +9,21 @@ import java.util.Date;
  */
 
 public class DateHelper {
+
+    /**
+     * Convierte un string de fecha en otro formateado
+     * @param date
+     * @param inFormat
+     * @param exFormat
+     * @return
+     */
+    public static String stringToFormat(String date, String inFormat, String exFormat){
+        // Convertir a Date
+        Date dateConvert = stringToDate(date, inFormat);
+        // Formateamos la fecha
+        return dateToString(dateConvert, exFormat);
+    }
+
     /**
      * Convierte un objeto DATE en String, usando un formato especifo
      * @param day
@@ -26,12 +41,18 @@ public class DateHelper {
      * @return
      */
     public static String dateToString(Date day){
-        SimpleDateFormat service = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return service.format(day);
+        return dateToString(day, "yyyy-MM-dd HH:mm:ss");
     }
 
-    public static Date stringToDate(String date){
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    /**
+     * Funcion que se encarga de convertir un String en Date con el formato personalizado
+     * @param date
+     * @param inFormat
+     * @return
+     */
+    public static Date stringToDate(String date, String inFormat){
+        // Creamos formateador
+        SimpleDateFormat formatter = new SimpleDateFormat(inFormat);
         //formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
             return formatter.parse(date);
@@ -39,5 +60,14 @@ public class DateHelper {
             //System.err.println("Failed to parse Date due to:", e);
             return null;
         }
+    }
+
+    /**
+     * Funcion que se encarga de convertir un String en Date con el formato predefinido de MySQL
+     * @param date
+     * @return
+     */
+    public static Date stringToDate(String date){
+        return stringToDate(date, "yyyy-MM-dd HH:mm:ss");
     }
 }
