@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/MobileIA/mia-core-android'
     gitUrl = 'https://github.com/MobileIA/mia-core-android.git'
 
-    libraryVersion = '0.0.20'
+    libraryVersion = '0.0.21'
 
     developerId = 'mobileia'
     developerName = 'MobileIA'
@@ -31,8 +31,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 20
-        versionName "0.0.20"
+        versionCode 21
+        versionName "0.0.21"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -55,6 +55,7 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     testCompile 'junit:junit:4.12'
     compile 'com.google.inject:guice:4.1.0'
+    compile 'com.afollestad.material-dialogs:core:0.9.6.0'
 }
 
 apply from: '../installv1.gradle'
