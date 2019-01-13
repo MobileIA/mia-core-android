@@ -3,6 +3,7 @@ package com.mobileia.core.helper;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Created by matiascamiletti on 20/2/18.
@@ -18,8 +19,19 @@ public class DateHelper {
      * @return
      */
     public static String stringToFormat(String date, String inFormat, String exFormat){
+        return stringToFormat(date, inFormat, exFormat,false);
+    }
+
+    /**
+     * Convierte un string de fecha en otro formateado
+     * @param date
+     * @param inFormat
+     * @param exFormat
+     * @return
+     */
+    public static String stringToFormat(String date, String inFormat, String exFormat, boolean isUtc){
         // Convertir a Date
-        Date dateConvert = stringToDate(date, inFormat);
+        Date dateConvert = stringToDate(date, inFormat, isUtc);
         // Formateamos la fecha
         return dateToString(dateConvert, exFormat);
     }
@@ -51,9 +63,22 @@ public class DateHelper {
      * @return
      */
     public static Date stringToDate(String date, String inFormat){
+        return stringToDate(date, inFormat, false);
+    }
+
+    /**
+     * Funcion que se encarga de convertir un String en Date con el formato personalizado
+     * @param date
+     * @param inFormat
+     * @return
+     */
+    public static Date stringToDate(String date, String inFormat, boolean isUtc){
         // Creamos formateador
         SimpleDateFormat formatter = new SimpleDateFormat(inFormat);
-        //formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        if(isUtc){
+            formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        }
+
         try {
             return formatter.parse(date);
         } catch (ParseException e) {
@@ -69,5 +94,14 @@ public class DateHelper {
      */
     public static Date stringToDate(String date){
         return stringToDate(date, "yyyy-MM-dd HH:mm:ss");
+    }
+
+    /**
+     * Funcion que se encarga de convertir un String en Date con el formato predefinido de MySQL
+     * @param date
+     * @return
+     */
+    public static Date stringToDate(String date, boolean isUtc){
+        return stringToDate(date, "yyyy-MM-dd HH:mm:ss", isUtc);
     }
 }

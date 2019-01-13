@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/MobileIA/mia-core-android'
     gitUrl = 'https://github.com/MobileIA/mia-core-android.git'
 
-    libraryVersion = '0.0.22'
+    libraryVersion = '0.0.23'
 
     developerId = 'mobileia'
     developerName = 'MobileIA'
@@ -31,8 +31,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 22
-        versionName "0.0.22"
+        versionCode 23
+        versionName "0.0.23"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
