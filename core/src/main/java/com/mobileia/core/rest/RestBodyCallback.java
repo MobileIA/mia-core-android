@@ -26,7 +26,7 @@ abstract public class RestBodyCallback<T> implements Callback<RestBody<T>> {
 
     @Override
     public void onFailure(Call<RestBody<T>> call, Throwable t) {
-
+        onError(new Error(-3, t.getMessage()));
     }
 
     abstract public void onSuccess(T body);
