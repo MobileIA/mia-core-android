@@ -3,5 +3,5 @@ La idea de esta libreria es contener todo lo necesario para realizar aplicacione
 ## Como Usar
 1. Agregar libreria desde Gradle
 ```gradle
-implementation 'com.mobileia:core:0.0.24'
+implementation 'com.mobileia:core:0.0.25'
 ```
