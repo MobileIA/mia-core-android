@@ -6,7 +6,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
-abstract class MobileiaRest {
+abstract public class MobileiaRest {
 
     protected val retrofit: Retrofit
 
