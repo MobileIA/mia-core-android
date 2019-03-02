@@ -5,8 +5,8 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Build;
-import android.support.annotation.StringRes;
-import android.support.v4.app.NotificationCompat;
+import androidx.annotation.StringRes;
+import androidx.core.app.NotificationCompat;
 
 /**
  * Created by matiascamiletti on 27/2/18.

@@ -1,10 +1,9 @@
 package com.mobileia.core.dialog;
 
 import android.content.Context;
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.mobileia.core.R;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;

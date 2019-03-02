@@ -1,9 +1,9 @@
 package com.mobileia.core.view.helper;
 
-import android.support.annotation.IdRes;
-import android.support.annotation.StringRes;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.IdRes;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 /**
  * Created by matiascamiletti on 27/1/18.
