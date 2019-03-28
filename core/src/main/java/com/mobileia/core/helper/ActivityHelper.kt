@@ -10,6 +10,7 @@ import android.content.Intent
 open class ActivityHelper {
 
     companion object {
+
         fun createInstance(context: Activity, cls: Class<*>) {
             val intent = Intent(context, cls)
             context.startActivity(intent)
@@ -29,8 +30,7 @@ open class ActivityHelper {
             // Verificamos que haya parametros
             return if (context.intent.extras == null || context.intent.extras!!.isEmpty) {
                 null
-            } else context.intent.extras!!.get(key)
-            // Retornamos el valor buscado
+            } else context.intent.extras!!.get(key) // Retornamos el valor buscado
         }
     }
 
